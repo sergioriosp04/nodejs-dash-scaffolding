@@ -4,13 +4,14 @@ const db = require('../../models/index')
 
 router.get('/', async (req, res, next) => {
   try {
-    let response =  await db.TestDb.findAll()
+    let response =  await db.TestDb.findAlll()
     res.json({
         "success": "true",
         "message": "message",
         "data": response
     })
   } catch (error) {
+    next(error)
   }
 });
 
