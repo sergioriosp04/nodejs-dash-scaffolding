@@ -22,7 +22,10 @@ const create = async(req, res, next) => {
 
         res.json({
             message : "",
-            data: user,
+            data: {
+                id: user.id,
+                email: user.email,
+            },
         })   
     } catch (error) {
         next(error)
