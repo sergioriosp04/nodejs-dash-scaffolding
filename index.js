@@ -6,6 +6,8 @@ const { logErrors, errorHandler } = require('./middlewares/ErrorHandler')
 const app = express()
 const port = config.port || 8000;
 
+app.use(express.json())
+
 app.get('/ping', (req, res) => {
   res.send('dashboard')
 })
