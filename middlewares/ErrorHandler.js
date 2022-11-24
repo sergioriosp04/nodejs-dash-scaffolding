@@ -1,6 +1,6 @@
 function logErrors (err, req, res, next) {
   // si es un error controlado se responde
-  if (!err instanceof Error) {
+  if (err.status) {
     return res.status(err.status).json({
       message: err.message,
       data: {}
