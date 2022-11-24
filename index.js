@@ -2,6 +2,7 @@ const config = require('./config/env')
 const express = require('express')
 const router = require('./routes/v1/index')
 const { logErrors, errorHandler } = require('./middlewares/ErrorHandler')
+// require('./utils/auth/index')
 
 const app = express()
 const port = config.port || 8000;

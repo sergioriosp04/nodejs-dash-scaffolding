@@ -19,13 +19,11 @@ const create = async(req, res, next) => {
         const body = req.body
         body.password = await passHash(body.password)
         let user = await db.User.create(body)
+        delete user.dataValues.password
 
         res.json({
             message : "",
-            data: {
-                id: user.id,
-                email: user.email,
-            },
+            data: user,
         })   
     } catch (error) {
         next(error)

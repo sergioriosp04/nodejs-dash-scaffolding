@@ -23,9 +23,10 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'User',
-    defaultScope: {
-      attributes: { exclude: ['password'] },
-    }
+    // si es necesario devolver el password para el dema de verificacion en login
+    // defaultScope: {
+    //   attributes: { exclude: ['password'] },
+    // }
   });
   return User;
 };

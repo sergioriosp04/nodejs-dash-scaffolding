@@ -5,8 +5,8 @@ const passHash = async(myPlaintextPassword) => {
     return pass
 }
 
-const passVerify = async(myPlaintextPassword) => {
-    return bcrypt.compare(myPlaintextPassword, 10);
+const passVerify = async(myPlaintextPassword, encryptedPassword) => {
+    return await bcrypt.compare(myPlaintextPassword, encryptedPassword);
 }
 
 module.exports = { passHash, passVerify}
