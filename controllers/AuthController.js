@@ -6,7 +6,8 @@ const localLogin = async(req, res, next) => {
         const user = req.user
         const jwtPayload = {
             sub: user.id,
-            email: user.username
+            email: user.username,
+            role: user.role
         }
         res.json({
             message : "",
