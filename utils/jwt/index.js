@@ -6,7 +6,11 @@ const singToken = (payload) => {
 }
 
 const verifyToken = (token) => {
-    return jwt.verify(token, config.jwtSecret)
+    try {
+        return jwt.verify(token, config.jwtSecret)
+    } catch (err) {
+        return new Error('json web token no valido')
+    }
 }
 
 module.exports = { singToken, verifyToken }

@@ -10,10 +10,10 @@ const checkRole = (req, res, next) => {
     }
 }
 
-const checkRoles = (...roles) => {
+const checkRoles = (roles) => {
     return (req, res, next) => {
         const user = req.user
-        if (user.role === 'admin') {
+        if (roles.includes(user.role)) {
             next()
         } else {
             next({
@@ -24,4 +24,4 @@ const checkRoles = (...roles) => {
     }
 }
 
-module.exports = { checkRole }
+module.exports = { checkRole, checkRoles }

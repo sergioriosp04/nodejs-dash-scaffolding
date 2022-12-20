@@ -9,7 +9,7 @@ function routerApi(app) {
   app.use('/api/v1', router)
   router.use('/test', testRouter)
   router.use('/user', UserRouter)
-  router.use('/login', AuthRouter)
+  router.use('/auth', AuthRouter)
 }
 
 module.exports = routerApi;

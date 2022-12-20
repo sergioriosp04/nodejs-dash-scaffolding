@@ -1,8 +1,7 @@
 const bcrypt = require('bcrypt');
 
 const passHash = async(myPlaintextPassword) => {
-    const pass = await bcrypt.hash(myPlaintextPassword, 10)
-    return pass
+    return await bcrypt.hash(myPlaintextPassword, 10)
 }
 
 const passVerify = async(myPlaintextPassword, encryptedPassword) => {
