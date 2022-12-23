@@ -37,7 +37,7 @@ class AuthService {
         }
 
         const password = await passHash(newPassword)
-        const instertToken = await user.update({ password})
+        await user.update({ password: password, recoveryToken: null })
 
         return true
 
