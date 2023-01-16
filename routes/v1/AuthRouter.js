@@ -10,6 +10,12 @@ router.post(
 )
 
 router.post(
+    '/profile',
+    passport.authenticate('jwt', {session: false}),
+    AuthController.profile
+)
+
+router.post(
     '/recovery-pass',
     AuthController.recoveryPass
 )

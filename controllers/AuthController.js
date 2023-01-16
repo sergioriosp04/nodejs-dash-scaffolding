@@ -10,14 +10,31 @@ const localLogin = async(req, res, next) => {
         const user = req.user
         const jwtPayload = {
             sub: user.id,
-            email: user.username,
-            role: user.role
+            email: user.email,
+            role: user.role,
         }
         res.json({
             message : "",
             data: {
                 user,
                 jwt: singToken(jwtPayload)
+            },
+        })   
+    } catch (error) {
+        next(error)
+    }
+}
+
+const profile = async(req, res, next) => {
+    try {
+        const { sub } = req.user
+        const user = await db.User.findByPk(sub)
+        delete user.dataValues.password
+
+        res.json({
+            message : "",
+            data: {
+                user,
             },
         })   
     } catch (error) {
@@ -67,4 +84,4 @@ const changePass = async(req, res, next) => {
     }
 }
 
-module.exports = { localLogin, recoveryPass, changePass }
+module.exports = { localLogin, profile, recoveryPass, changePass }
