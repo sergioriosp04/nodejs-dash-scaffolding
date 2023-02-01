@@ -4,7 +4,8 @@
   "description": "basic dashboard, scafold project whit node js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "sergioriosp04",
   "license": "ISC",

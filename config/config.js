@@ -1,10 +1,12 @@
-{
+const config = require('./env');
+
+module.exports = {
   "development": {
-    "username": "root",
-    "password": "secret",
-    "database": "dashboard",
-    "host": "localhost",
-    "port": "3307",
+    "username": config.dbUser,
+    "password": config.dbPassword,
+    "database": config.dbDatabase,
+    "host": config.dbHost,
+    "port": config.dbPort,
     "dialect": "mysql"
   },
   "test": {
